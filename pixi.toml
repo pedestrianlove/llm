@@ -7,6 +7,7 @@ version = "0.1.0"
 
 [activation.env]
 CUDA_HOME = "$CONDA_PREFIX"
+PATH = "$PATH:$CONDA_PREFIX/../../../third_party/llama.cpp/build/bin"
 
 [tasks]
 
