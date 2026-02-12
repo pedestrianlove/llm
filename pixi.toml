@@ -8,6 +8,7 @@ version = "0.1.0"
 [activation.env]
 CUDA_HOME = "$CONDA_PREFIX"
 PATH = "$PATH:$CONDA_PREFIX/../../../third_party/llama.cpp/build/bin"
+BLAS_INCLUDE_DIRS = "$CONDA_PREFIX/include:$BLAS_INCLUDE_DIRS"
 
 [tasks]
 
@@ -19,13 +20,14 @@ cuda-toolkit = ">=12.9.1,<13"
 gcc = ">=14.3.0,<14.4"
 pkgconfig = ">=1.5.5,<2"
 cmake = ">=4.2.3,<5"
+mkl = ">=2025.3.0,<2026"
 
 [tasks.pull-llamacpp]
 cmd = "bash scripts/clone-or-pull.sh https://github.com/ggml-org/llama.cpp third_party/llama.cpp"
 
 [tasks.build]
 cwd = "third_party/llama.cpp"
-cmd = "cmake -B build -DGGML_CUDA=ON -DGGML_NATIVE=ON -DGGML_BLAS=ON -DGGML_BLAS_VENDOR=Intel10_64lp && cmake --build build --config Release -j $(nproc)"
+cmd = "cmake -B build -DGGML_CUDA=ON -DGGML_NATIVE=ON -DGGML_BLAS=ON -DGGML_BLAS_VENDOR=Intel10_64lp -DBLAS_INCLUDE_DIRS=$BLAS_INCLUDE_DIRS && cmake --build build --config Release -j $(nproc)"
 depends-on = ["pull-llamacpp"]
 
 [tasks.serve]
