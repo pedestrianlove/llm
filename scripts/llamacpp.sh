@@ -13,4 +13,4 @@ llama-server \
     --top-p 0.95 \
     --min-p 0.01 \
     --top-k 40 \
-    --jinja --ctx-checkpoints 128
+    --numa distribute --jinja --ctx-checkpoints 128
