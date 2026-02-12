@@ -18,6 +18,8 @@ mkl-static = ">=2025.3.0,<2026"
 mkl-include = ">=2025.3.0,<2026"
 cuda-toolkit = ">=12.9.1,<13"
 gcc = ">=14.3.0,<14.4"
+pkgconfig = ">=1.5.5,<2"
+cmake = ">=4.2.3,<5"
 
 [tasks.pull-llamacpp]
 cmd = "bash scripts/clone-or-pull.sh https://github.com/ggml-org/llama.cpp third_party/llama.cpp"
@@ -26,4 +28,7 @@ cmd = "bash scripts/clone-or-pull.sh https://github.com/ggml-org/llama.cpp third
 cwd = "third_party/llama.cpp"
 cmd = "cmake -B build -DGGML_CUDA=ON -DGGML_NATIVE=ON -DGGML_BLAS=ON -DGGML_BLAS_VENDOR=Intel10_64lp && cmake --build build --config Release -j $(nproc)"
 depends-on = ["pull-llamacpp"]
+
+[tasks.serve]
+cmd = "bash scripts/llamacpp.sh"
 
