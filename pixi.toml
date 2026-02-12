@@ -9,6 +9,8 @@ version = "0.1.0"
 CUDA_HOME = "$CONDA_PREFIX"
 PATH = "$PATH:$CONDA_PREFIX/../../../third_party/llama.cpp/build/bin"
 BLAS_INCLUDE_DIRS = "$CONDA_PREFIX/include:$BLAS_INCLUDE_DIRS"
+MKL_NUM_THREADS = "$(nproc)"  # Match your physical cores
+OMP_NUM_THREADS = "$(nproc)"  # Match your physical cores
 
 [tasks]
 
