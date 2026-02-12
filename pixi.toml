@@ -12,8 +12,17 @@ CUDA_HOME = "$CONDA_PREFIX"
 
 [dependencies]
 cuda = "12.9.*"
-python = "3.14.*"
-"llama.cpp" = ">=7880,<7881"
+openblas = "*"
+mkl-static = ">=2025.3.0,<2026"
+mkl-include = ">=2025.3.0,<2026"
+cuda-toolkit = ">=12.9.1,<13"
+gcc = ">=14.3.0,<14.4"
 
-[pypi-dependencies]
-sglang = ">=0.5.2, <0.6"
+[tasks.pull-llamacpp]
+cmd = "bash scripts/clone-or-pull.sh https://github.com/ggml-org/llama.cpp third_party/llama.cpp"
+
+[tasks.build]
+cwd = "third_party/llama.cpp"
+cmd = "cmake -B build -DGGML_CUDA=ON -DGGML_NATIVE=ON -DGGML_BLAS=ON -DGGML_BLAS_VENDOR=Intel10_64lp && cmake --build build --config Release -j $(nproc)"
+depends-on = ["pull-llamacpp"]
+
