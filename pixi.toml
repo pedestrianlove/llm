@@ -13,7 +13,6 @@ PATH = "$PATH:$CONDA_PREFIX/../../../third_party/llama.cpp/build/bin"
 
 [dependencies]
 cuda = "12.9.*"
-openblas = "*"
 mkl-static = ">=2025.3.0,<2026"
 mkl-include = ">=2025.3.0,<2026"
 cuda-toolkit = ">=12.9.1,<13"
