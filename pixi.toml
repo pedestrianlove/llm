@@ -23,6 +23,7 @@ gcc = ">=14.3.0,<14.4"
 pkgconfig = ">=1.5.5,<2"
 cmake = ">=4.2.3,<5"
 mkl = ">=2025.3.0,<2026"
+huggingface_hub = ">=1.4.1,<2"
 
 [tasks.pull-llamacpp]
 cmd = "bash scripts/clone-or-pull.sh https://github.com/ggml-org/llama.cpp third_party/llama.cpp"

@@ -2,7 +2,7 @@
 
 llama-server \
     -hf unsloth/Qwen3-Coder-Next-GGUF:UD-Q4_K_XL \
-    --port 8001 \
+    --host 0.0.0.0 --port 8001 \
     --ctx-size 32072 \
     --ubatch-size 4096 \
     --batch-size 4096 \
