@@ -1,16 +1,10 @@
 #! /usr/bin/env bash
 
-llama-server \
-    -hf unsloth/Qwen3-Coder-Next-GGUF:UD-Q4_K_XL \
-    --host 0.0.0.0 --port 8001 \
-    --ctx-size 32072 \
-    --ubatch-size 4096 \
-    --batch-size 4096 \
-    --flash-attn on \
-    --fit on \
-    --seed 3407 \
-    --temp 1.0 \
+llama-cli \
+    -hf unsloth/Qwen3.5-27B-GGUF:UD-Q8_K_XL \
+    --ctx-size 16384 \
+    --temp 0.6 \
     --top-p 0.95 \
-    --min-p 0.01 \
-    --top-k 40 \
-    --numa distribute --jinja --ctx-checkpoints 128
+    --top-k 20 \
+    --min-p 0.00 \
+    --numa distribute
