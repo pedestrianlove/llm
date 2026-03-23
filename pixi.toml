@@ -30,7 +30,7 @@ cmd = "bash scripts/clone-or-pull.sh https://github.com/ggml-org/llama.cpp third
 
 [tasks.build]
 cwd = "third_party/llama.cpp"
-cmd = "cmake -B build -DGGML_CUDA=ON -DGGML_NATIVE=ON -DGGML_BLAS=ON -DGGML_BLAS_VENDOR=Intel10_64lp -DBLAS_INCLUDE_DIRS=$BLAS_INCLUDE_DIRS && cmake --build build --config Release -j $(nproc)"
+cmd = "cmake -B build -DGGML_RPC=ON -DGGML_CUDA=ON -DGGML_NATIVE=ON -DGGML_BLAS=ON -DGGML_BLAS_VENDOR=Intel10_64lp -DBLAS_INCLUDE_DIRS=$BLAS_INCLUDE_DIRS && cmake --build build --config Release -j $(nproc)"
 depends-on = ["pull-llamacpp"]
 
 [tasks.serve]
