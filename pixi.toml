@@ -37,3 +37,6 @@ depends-on = ["pull-llamacpp"]
 [tasks.serve]
 cmd = "bash scripts/llamacpp.sh"
 
+[tasks.bench]
+cmd = "bash scripts/llama-bench.sh"
+
