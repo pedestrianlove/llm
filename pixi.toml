@@ -35,7 +35,7 @@ cmd = "cmake -B build -DGGML_RPC=ON -DGGML_CUDA=ON -DGGML_NATIVE=ON -DGGML_BLAS=
 depends-on = ["pull-llamacpp"]
 
 [tasks.serve]
-cmd = "bash scripts/llamacpp.sh"
+cmd = "bash scripts/llamacpp-q4.sh"
 
 [tasks.bench]
 cmd = "bash scripts/llama-bench.sh"
