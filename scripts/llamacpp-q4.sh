@@ -20,4 +20,4 @@ llama-server \
     --top-k 20 \
     --min-p 0.00 \
     --host 0.0.0.0 \
-    --port 8080
+    --port 30000
