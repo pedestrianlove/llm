@@ -8,14 +8,14 @@ export GGML_CUDA_GRAPH_OPT=1
 # Max context tested: 131K @ 145 t/s pp, 13.6 t/s tg
 # Layer split optimal for long context; row split gives better tg but OOMs past 32K
 llama-server \
-    -hf unsloth/Qwen3.5-27B-GGUF:UD-Q4_K_XL \
+    -hf unsloth/Qwen3.6-27B-GGUF:UD-Q4_K_XL \
     --ctx-size 131072 \
     -ngl 99 \
     -sm layer \
     -b 2048 -ub 128 \
     -fa on \
     --numa distribute \
-    --temp 0.6 \
+    --temp 1.0 \
     --top-p 0.95 \
     --top-k 20 \
     --min-p 0.00 \

@@ -1,6 +1,6 @@
 # Setup LLM inference
 
-- Model: Qwen3.5-27B-Q4-K-M.
+- Model: Qwen3.6-27B-UD-Q4_K_XL.
 
 ## 1. Install Pixi
 ```bash
